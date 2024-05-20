@@ -1,7 +1,9 @@
-import { useState } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
 import { Button, WingBlank, Carousel } from "@ant-design/react-native";
+
 import splashScreen1 from "../../../assets/images/splashScreen1.png";
+import splashScreen2 from "../../../assets/images/splashScreen2.png";
+import splashScreen3 from "../../../assets/images/splashScreen3.png";
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -28,30 +30,50 @@ const styles = StyleSheet.create({
 });
 
 const SplashScreen = ({ navigation }) => {
-  const [count, setCount] = useState(0);
-
   return (
     <View>
       <Carousel style={styles.wrapper}>
         <View style={{ ...styles.containerHorizontal }}>
           <Image source={splashScreen1} />
 
-          <Text>KEGIATAN LINGKUNGAN HIDUP & KEBERSIHAN</Text>
+          <WingBlank>
+            <Text style={{ fontSize: 20, textAlign: "center", marginTop: 45 }}>
+              KEGIATAN LINGKUNGAN HIDUP & KEBERSIHAN
+            </Text>
+          </WingBlank>
         </View>
 
         <View style={{ ...styles.containerHorizontal }}>
-          <Text>Carousel 2</Text>
+          <Image source={splashScreen2} />
+
+          <WingBlank>
+            <Text style={{ fontSize: 20, textAlign: "center", marginTop: 45 }}>
+              APLIKASI INI DIBUAT UNTUK MEMUDAHKAN PETUGAS, PENGAWAS DAN KEPALA
+              RUANGAN DALAM MELAKSANAKAN CHECKLIST KEBERSIHAN
+            </Text>
+          </WingBlank>
+        </View>
+
+        <View style={{ ...styles.containerHorizontal }}>
+          <Image source={splashScreen3} />
+
+          <WingBlank>
+            <Text style={{ fontSize: 20, textAlign: "center", marginTop: 70 }}>
+              SILAHKAN TEKAN TOMBOL MULAI UNTUK MEMULAI APLIKASI
+            </Text>
+          </WingBlank>
         </View>
       </Carousel>
 
-      <WingBlank style={{ marginTop: 20 }}>
+      <WingBlank style={{ marginTop: 20, backgroundColor: "#FFFFFF" }}>
         <Button
           type="primary"
+          style={{ borderRadius: 50 }}
           onPressIn={() => {
-            setCount(count + 1);
+            navigation.navigate("AuthLogin");
           }}
         >
-          MEMULAI AWAL
+          MEMULAI APLIKASI
         </Button>
       </WingBlank>
     </View>

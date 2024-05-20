@@ -1,7 +1,13 @@
-import { Text } from "react-native";
+import { View, Text } from "react-native";
 
 const Home = () => {
-  return <Text>Home</Text>;
+  return (
+    <View>
+      <View>
+        <Text style={{ textAlign: "center" }}>INI HALAMAN LOGIN</Text>
+      </View>
+    </View>
+  );
 };
 
 export default Home;
