@@ -39,6 +39,7 @@ const Router = () => {
         options={{
           ...styleHeader,
           title: "Home",
+          
         }}
       />
     </Stack.Navigator>
