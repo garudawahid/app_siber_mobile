@@ -1,6 +1,6 @@
 import BottomBar from "../../globals/BottomBar";
 
-const Home = ({ navigation, routeTitleActive, setRouteTitleActive }) => {
+const Report = ({ navigation, routeTitleActive, setRouteTitleActive }) => {
   return (
     <BottomBar
       navigation={navigation}
@@ -10,4 +10,4 @@ const Home = ({ navigation, routeTitleActive, setRouteTitleActive }) => {
   );
 };
 
-export default Home;
+export default Report;

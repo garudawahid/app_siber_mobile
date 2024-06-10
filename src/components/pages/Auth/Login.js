@@ -4,13 +4,16 @@ import { WingBlank, Button } from "@ant-design/react-native";
 import vectorLogin from "../../../assets/images/vector_login.png";
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
   wrapper: {
     backgroundColor: "#fff",
     width: "100%",
     height: "90%",
   },
   containerHorizontal: {
-    flexGrow: 1,
     alignItems: "center",
     justifyContent: "center",
     height: 150,
@@ -28,26 +31,35 @@ const styles = StyleSheet.create({
     borderColor: "#004A99",
     textAlign: "center",
   },
+  textInput: {
+    height: 40,
+    borderColor: "#000000",
+    borderBottomWidth: 1,
+    marginBottom: 36,
+  },
 });
 
 const AuthLogin = ({ navigation }) => {
   return (
-    <View>
-      <View style={{ marginTop: 275 }}>
-        <WingBlank>
-          <View style={{ ...styles.containerHorizontal }}>
-            <Image source={vectorLogin} />
-          </View>
-        </WingBlank>
+    <View
+      style={[
+        styles.container,
+        {
+          flexDirection: "column",
+        },
+      ]}
+    >
+      <View style={{ flex: 2 }}>
+        <View style={{ ...styles.containerHorizontal, margin: "auto" }}>
+          <Image source={vectorLogin} />
+        </View>
       </View>
 
-      <View>
-        <Text style={{ fontSize: 20, textAlign: "center", marginTop: 95 }}>
-          LOGIN
-        </Text>
-      </View>
+      <View style={{ flex: 2 }}>
+        <View>
+          <Text style={{ fontSize: 20, textAlign: "center" }}>LOGIN</Text>
+        </View>
 
-      <View style={{ marginTop: 25 }}>
         <View>
           <TextInput style={styles.input} placeholder="Masukan User-ID Anda" />
         </View>
@@ -65,7 +77,7 @@ const AuthLogin = ({ navigation }) => {
             type="primary"
             style={{ borderRadius: 50 }}
             onPressIn={() => {
-              navigation.navigate("Home");
+              navigation.navigate("Dashboard");
             }}
           >
             MASUK

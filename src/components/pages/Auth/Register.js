@@ -1,7 +1,13 @@
 import { Text } from "react-native";
 
 const AuthRegister = () => {
-  return <Text>Register page</Text>;
+  return         <View style={{flexDirection: "column"}}>
+  <View style={{ flex: 1 }}>
+
+  </View>
+
+
+</View>
 };
 
 export default AuthRegister;

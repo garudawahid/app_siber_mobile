@@ -1,39 +1,108 @@
-import * as React from "react";
-import { Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Image } from "react-native";
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
+import Dashboard from "../../pages/Home/Dashboard";
+import FormEntry from "../../pages/FormRegCleaning/Form";
+import ReportList from "../../pages/Report/ReportList";
+import CardProfile from "../../pages/Profile/ProfileCard";
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import iconHome from "../../../assets/images/iconHome.png";
+import iconHomeActive from "../../../assets/images/iconHomeActive.png";
+import iconCalender from "../../../assets/images/iconCalender.png";
+import iconCalenderActive from "../../../assets/images/iconCalenderActive.png";
+import iconReport from "../../../assets/images/iconReport.png";
+import iconReportActive from "../../../assets/images/iconReportActive.png";
+import iconProfile from "../../../assets/images/iconProfile.png";
+import iconProfileActive from "../../../assets/images/iconProfileActive.png";
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
+const BottomBar = ({ navigation, routeTitleActive, setRouteTitleActive }) => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+    <Tab.Navigator initialRouteName="BottomTabs">
+      <Tab.Screen
+        name="BarHome"
+        component={Dashboard}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: () => (
+            <Image
+              source={routeTitleActive == "Home" ? iconHomeActive : iconHome}
+            />
+          ),
+        }}
+        listeners={{
+          tabPress: (e) => {
+            setRouteTitleActive("Home");
+          },
+        }}
+      />
+      <Tab.Screen
+        name="BarRegister"
+        component={FormEntry}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: () => (
+            <Image
+              source={
+                routeTitleActive == "Form Register"
+                  ? iconCalenderActive
+                  : iconCalender
+              }
+            />
+          ),
+        }}
+        listeners={{
+          tabPress: (e) => {
+            setRouteTitleActive("Form Register");
+          },
+        }}
+      />
+      <Tab.Screen
+        name="BarReport"
+        component={ReportList}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: () => (
+            <Image
+              source={
+                routeTitleActive == "Report" ? iconReportActive : iconReport
+              }
+            />
+          ),
+        }}
+        listeners={{
+          tabPress: (e) => {
+            setRouteTitleActive("Report");
+          },
+        }}
+      />
+
+      <Tab.Screen
+        name="BarProfile"
+        component={CardProfile}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: () => (
+            <Image
+              source={
+                routeTitleActive == "Profile" ? iconProfileActive : iconProfile
+              }
+            />
+          ),
+        }}
+        listeners={{
+          tabPress: (e) => {
+            setRouteTitleActive("Profile");
+          },
+        }}
+      />
     </Tab.Navigator>
   );
-}
+};
 
-export default function BottomBar() {
-  return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
-  );
-}
+export default BottomBar;
